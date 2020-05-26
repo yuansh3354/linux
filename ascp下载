@@ -1,0 +1,28 @@
+### 如果有报错，-P33001可删除
+### fast 、sra 等测序数据的下载方式
+### 7位数字下载
+
+cat SRR_Acc_List.txt|while read id
+do
+x=$(echo $id | cut -b1-6)
+y=$(echo $id | cut -b10-10)
+echo $id
+ascp -QT -l 300m -P33001  -i \
+${wkd}/asperaweb_id_dsa.openssh \
+era-fasp@fasp.sra.ebi.ac.uk:/vol1/fastq/$x/00$y/$id/ ./
+done
+
+###  6位数字下载
+
+cat SRR_Acc_List.txt|while read id
+do
+x=$(echo $id | cut -b1-6)
+echo $id
+ascp -QT -l 300m -P33001  -i \
+${wkd}/asperaweb_id_dsa.openssh \
+era-fasp@fasp.sra.ebi.ac.uk:/vol1/fastq/$x/$id/ ./
+done
+
+
+### ftp 储存的数据基本上都可以这么下载
+ascp -QT -l 300m -i asperaweb_id_dsa.openssh anonftp@ftp.ncbi.nlm.nih.gov:snp/organisms/human_9606/VCF/All_20180418.vcf.gz.tbi annotation/variation/human/dbSNP/
