@@ -1,0 +1,64 @@
+Last login: Thu Sep 17 09:10:36 on ttys000
+
+[WARNING]: Console output during zsh initialization detected.
+
+When using Powerlevel10k with instant prompt, console output during zsh
+initialization may indicate issues.
+
+You can:
+
+  - Recommended: Change ~/.zshrc so that it does not perform console I/O
+    after the instant prompt preamble. See the link below for details.
+
+    * You will not see this error message again.
+    * Zsh will start quickly and prompt will update smoothly.
+
+  - Suppress this warning either by running p10k configure or by manually
+    defining the following parameter:
+
+      typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+
+    * You will not see this error message again.
+    * Zsh will start quickly but prompt will jump down after initialization.
+
+  - Disable instant prompt either by running p10k configure or by manually
+    defining the following parameter:
+
+      typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
+
+    * You will not see this error message again.
+    * Zsh will start slowly.
+
+  - Do nothing.
+
+    * You will see this error message every time you start zsh.
+    * Zsh will start quickly but prompt will jump down after initialization.
+
+For details, see:
+https://github.com/romkatv/powerlevel10k/blob/master/README.md#instant-prompt
+
+-- console output produced during zsh initialization follows --
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.oh-my-zsh
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="powerlevel10k/Powerlevel10k"
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# If set to an empty array, this variable will have no effect.
+".zshrc" 276L, 9932C
